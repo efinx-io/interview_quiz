@@ -3,6 +3,8 @@ package io.efinx.interview_quiz;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Quiz2 {
 
 	public static String decompress(String s) {
@@ -13,10 +15,7 @@ public class Quiz2 {
 				int num = Integer.parseInt(m.group(1));
 				String content = m.group(2);
 
-				StringBuilder buf = new StringBuilder();
-				for (int i = 0; i < num; i++)
-					buf.append(content);
-				return buf.toString();
+				return StringUtils.repeat(content, num);
 			});
 		}
 
